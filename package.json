@@ -1,8 +1,8 @@
 {
-  "name": "com.emreemiroglu.hmmodelviewcontroller",
+  "name": "com.emreemiroglu.modelviewmediatorcontroller",
   "version": "1.0.0",
-  "displayName": "HMModelViewController",
-  "description": "HMModelViewController is a Unity MVC framework using the Mediator pattern to keep Views focused on visuals. It offers a modular, clean structure through flexible and generic interfaces.",
+  "displayName": "ModelViewMediatorController",
+  "description": "ModelViewMediatorController is a Unity MVC framework using the Mediator pattern to keep Views focused on visuals. It offers a modular, clean structure through flexible and generic interfaces.",
   "author": {
     "name": "Emre Emiroglu",
     "email": "emirogluemre08@gmail.com",
@@ -11,14 +11,14 @@
   "keywords": [
     "model",
     "view",
-    "controller",
     "mediator",
+    "controller",
     "mvc",
     "pattern",
     "unity"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Emre-Emiroglu/HMModelViewController.git"
+    "url": "https://github.com/Emre-Emiroglu/ModelViewMediatorController.git"
   }
 }

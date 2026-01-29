@@ -1,4 +1,4 @@
-﻿namespace HMModelViewController.Runtime
+﻿namespace ModelViewMediatorController.Runtime
 {
     /// <summary>
     /// Represents a view interface responsible for showing and hiding the view.

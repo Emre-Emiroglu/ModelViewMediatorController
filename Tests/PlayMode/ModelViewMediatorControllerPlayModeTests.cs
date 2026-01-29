@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using HMModelViewController.Runtime;
+﻿using System.Collections;
+using System.Collections.Generic;
+using ModelViewMediatorController.Runtime;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
-namespace HMModelViewController.Tests.EditMode
+namespace ModelViewMediatorController.Tests.PlayMode
 {
-    public sealed class ModelViewControllerEditModeTests
+    public sealed class ModelViewMediatorControllerPlayModeTests
     {
         private sealed class TestSettings
         {
@@ -55,9 +57,9 @@ namespace HMModelViewController.Tests.EditMode
         private TestMediator _mediator;
         private TestControllerOne _controllerOne;
         private TestControllerTwo _controllerTwo;
-
-        [SetUp]
-        public void Setup()
+        
+        [UnitySetUp]
+        public IEnumerator Setup()
         {
             _settings = new TestSettings();
             _model = new TestModel(_settings);
@@ -68,129 +70,169 @@ namespace HMModelViewController.Tests.EditMode
             
             _mediator.Controllers.Add(_controllerOne);
             _mediator.Controllers.Add(_controllerTwo);
-        }
 
-        [Test]
-        public void Model_Save_Load_Test()
+            yield return null;
+        }
+        
+        [UnityTest]
+        public IEnumerator Model_Save_And_Load_Test()
         {
             _model.TestValue = 5;
             
             _model.SaveData();
-
-            Assert.IsTrue(_settings.TestValue == 5);
             
+            yield return null;
+            
+            Assert.AreEqual(5, _settings.TestValue);
+
             _settings.TestValue = 10;
             
             _model.LoadData();
             
-            Assert.IsTrue(_model.TestValue == 10);
+            yield return null;
+            
+            Assert.AreEqual(10, _model.TestValue);
         }
-
-        [Test]
-        public void Mediator_Model_Relationship_Test()
+        
+        [UnityTest]
+        public IEnumerator Mediator_Model_Relationship_Test()
         {
             _mediator.Model.TestValue = 15;
             
             _mediator.Model.SaveData();
-
-            Assert.IsTrue(_mediator.Model.Settings.TestValue == 15);
             
+            yield return null;
+            
+            Assert.AreEqual(15, _mediator.Model.Settings.TestValue);
+
             _mediator.Model.Settings.TestValue = 20;
             
             _mediator.Model.LoadData();
             
-            Assert.IsTrue(_mediator.Model.TestValue == 20);
+            yield return null;
+            
+            Assert.AreEqual(20, _mediator.Model.TestValue);
         }
 
-        [Test]
-        public void Mediator_View_Relationship_Test()
+        [UnityTest]
+        public IEnumerator Mediator_View_Relationship_Test()
         {
             _mediator.View.Show();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, true);
+            yield return null;
             
+            Assert.IsTrue(_view.gameObject.activeInHierarchy);
+
             _mediator.View.Hide();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, false);
+            yield return null;
+            
+            Assert.IsFalse(_view.gameObject.activeInHierarchy);
         }
-        
-        [Test]
-        public void Mediator_Controllers_Relationship_Test()
+
+        [UnityTest]
+        public IEnumerator Mediator_Controllers_Relationship_Test()
         {
-            Assert.IsTrue(_mediator.Controllers.Count == 2);
+            Assert.AreEqual(2, _mediator.Controllers.Count);
             
             _mediator.Controllers.ForEach(x => x.Execute());
             
-            Assert.AreEqual(_controllerOne.IsExecuted, true);
-            Assert.AreEqual(_controllerTwo.IsExecuted, true);
+            yield return null;
+            
+            Assert.IsTrue(_controllerOne.IsExecuted);
+            Assert.IsTrue(_controllerTwo.IsExecuted);
         }
-        
-        [Test]
-        public void Controllers_Model_Relationship_Test()
+
+        [UnityTest]
+        public IEnumerator Controllers_Model_Relationship_Test()
         {
             _controllerOne.Model.TestValue = 25;
             
             _controllerOne.Model.SaveData();
-
-            Assert.IsTrue(_controllerOne.Model.Settings.TestValue == 25);
             
+            yield return null;
+            
+            Assert.AreEqual(25, _controllerOne.Model.Settings.TestValue);
+
             _controllerOne.Model.Settings.TestValue = 30;
             
             _controllerOne.Model.LoadData();
             
-            Assert.IsTrue(_controllerOne.Model.TestValue == 30);
+            yield return null;
             
+            Assert.AreEqual(30, _controllerOne.Model.TestValue);
+
             _controllerTwo.Model.TestValue = 35;
             
             _controllerTwo.Model.SaveData();
-
-            Assert.IsTrue(_controllerTwo.Model.Settings.TestValue == 35);
             
+            yield return null;
+            
+            Assert.AreEqual(35, _controllerTwo.Model.Settings.TestValue);
+
             _controllerTwo.Model.Settings.TestValue = 40;
             
             _controllerTwo.Model.LoadData();
             
-            Assert.IsTrue(_controllerTwo.Model.TestValue == 40);
+            yield return null;
+            
+            Assert.AreEqual(40, _controllerTwo.Model.TestValue);
         }
-        
-        [Test]
-        public void Controllers_View_Relationship_Test()
+
+        [UnityTest]
+        public IEnumerator Controllers_View_Relationship_Test()
         {
             _controllerOne.View.Show();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, true);
+            yield return null;
             
+            Assert.IsTrue(_view.gameObject.activeInHierarchy);
+
             _controllerOne.View.Hide();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, false);
+            yield return null;
             
+            Assert.IsFalse(_view.gameObject.activeInHierarchy);
+
             _controllerTwo.View.Show();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, true);
+            yield return null;
             
+            Assert.IsTrue(_view.gameObject.activeInHierarchy);
+
             _controllerTwo.View.Hide();
             
-            Assert.AreEqual(_view.gameObject.activeInHierarchy, false);
+            yield return null;
+            
+            Assert.IsFalse(_view.gameObject.activeInHierarchy);
         }
 
-        [Test]
-        public void Controller_Mediator_Relationship_Test()
+        [UnityTest]
+        public IEnumerator Controller_Mediator_Relationship_Test()
         {
             _controllerOne.Mediator.Initialize();
             
-            Assert.AreEqual(_mediator.IsSubscribed, true);
+            yield return null;
             
+            Assert.IsTrue(_mediator.IsSubscribed);
+
             _controllerOne.Mediator.Dispose();
             
-            Assert.AreEqual(_mediator.IsSubscribed, false);
+            yield return null;
             
+            Assert.IsFalse(_mediator.IsSubscribed);
+
             _controllerTwo.Mediator.Initialize();
             
-            Assert.AreEqual(_mediator.IsSubscribed, true);
+            yield return null;
             
+            Assert.IsTrue(_mediator.IsSubscribed);
+
             _controllerTwo.Mediator.Dispose();
             
-            Assert.AreEqual(_mediator.IsSubscribed, false);
+            yield return null;
+            
+            Assert.IsFalse(_mediator.IsSubscribed);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace HMModelViewController.Runtime
+﻿namespace ModelViewMediatorController.Runtime
 {
     /// <summary>
     /// Abstract base class for a model, implementing the IModel interface.

@@ -1,24 +1,22 @@
-<img src="icon.jpg" width="512" height="512" alt="HMModelViewController Logo">
-
-# HMModelViewController
-HMModelViewController provides a Model-View-Controller (MVC) architecture for Unity, enhanced with a Mediator pattern to decouple views from logic and state management. The package encourages clean separation of responsibilities and modularity through generic interfaces.
+# ModelViewMediatorController
+ModelViewMediatorController provides a Model-View-Controller (MVC) architecture for Unity, enhanced with a Mediator pattern to decouple views from logic and state management. The package encourages clean separation of responsibilities and modularity through generic interfaces.
 
 ## Features
-HMModelViewController includes the following key features:
-* MVC Architecture: Clear separation between data (Model), UI (View), and logic (Controller).
+ModelViewMediatorController includes the following key features:
+* MVC Architecture: Clear separation between data (Model), gameobject (View), and logic (Controller).
 * Mediator Pattern: Views stay purely visual while Mediators handle signals and controller orchestration.
 * Modular Design: Uses generic interfaces for easy extendability and reusability.
 
 ## Getting Started
 Install via UPM with git URL
 
-`https://github.com/Emre-Emiroglu/HMModelViewController.git`
+`https://github.com/Emre-Emiroglu/ModelViewMediatorController.git`
 
 Clone the repository
 ```bash
-git clone https://github.com/Emre-Emiroglu/HMModelViewController.git
+git clone https://github.com/Emre-Emiroglu/ModelViewMediatorController.git
 ```
-This project is developed using Unity version 6000.0.42f1.
+This project is developed using Unity version 6000.2.6f2.
 
 ## Usage
 * Model: Create a model class that holds data.

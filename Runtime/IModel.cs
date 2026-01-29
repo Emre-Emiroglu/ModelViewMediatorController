@@ -1,4 +1,4 @@
-﻿namespace HMModelViewController.Runtime
+﻿namespace ModelViewMediatorController.Runtime
 {
     /// <summary>
     /// Represents a model interface responsible for loading and saving data.

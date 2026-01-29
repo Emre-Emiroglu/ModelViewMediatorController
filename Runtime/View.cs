@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HMModelViewController.Runtime
+namespace ModelViewMediatorController.Runtime
 {
     /// <summary>
     /// Abstract base class for a view, implementing the IView interface.

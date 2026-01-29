@@ -1,4 +1,4 @@
-﻿namespace HMModelViewController.Runtime
+﻿namespace ModelViewMediatorController.Runtime
 {
     /// <summary>
     /// Represents a mediator interface responsible for managing the interaction between the model and view.

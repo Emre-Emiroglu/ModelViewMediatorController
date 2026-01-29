@@ -1,12 +1,14 @@
 {
-    "name": "HMModelViewController.Tests.PlayMode",
-    "rootNamespace": "HMModelViewController.Tests.PlayMode",
+    "name": "ModelViewMediatorController.Tests.EditMode",
+    "rootNamespace": "ModelViewMediatorController.Tests.EditMode",
     "references": [
         "GUID:27619889b8ba8c24980f49ee34dbb44a",
         "GUID:0acc523941302664db1f4e527237feb3",
         "GUID:15bff83618aabf84295cbe327916f6a6"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

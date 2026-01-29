@@ -1,4 +1,4 @@
-﻿## [1.0.0] - 2025-07-07
+﻿## [1.0.0] - 2026-01-29
 
 ### Added
 - Added Model-View-Controller (MVC) architecture implementation.

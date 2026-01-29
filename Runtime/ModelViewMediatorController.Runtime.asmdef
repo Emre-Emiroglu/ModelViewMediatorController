@@ -1,6 +1,6 @@
 {
-    "name": "HMModelViewController.Runtime",
-    "rootNamespace": "HMModelViewController.Runtime",
+    "name": "ModelViewMediatorController.Runtime",
+    "rootNamespace": "ModelViewMediatorController.Runtime",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
